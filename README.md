@@ -6,3 +6,6 @@
 A. Design a program to generate first 10 terms of Fibonacci series.
 
 B. Find the factorial of a given number using Recursion.
+
+3. Find the average and sum of array of N numbers entered by user.
+4. Create a class to find out the Area and perimeter of rectangle.
