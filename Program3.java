@@ -19,6 +19,7 @@ public class Program3 {
             total += arr[i];
         }
         float avg = total / (float) arr.length;
+        System.out.println("Sum: " + total);
         System.out.println("Average: " + avg);
 
     }
