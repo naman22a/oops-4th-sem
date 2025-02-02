@@ -9,3 +9,7 @@ B. Find the factorial of a given number using Recursion.
 
 3. Find the average and sum of array of N numbers entered by user.
 4. Create a class to find out the Area and perimeter of rectangle.
+5. Design a class that performs string operations
+   a) Equal
+   b) Reverse the string
+   c) Change case (Lower case or Upper case)
