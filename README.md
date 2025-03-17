@@ -13,3 +13,5 @@ B. Find the factorial of a given number using Recursion.
    a) Equal
    b) Reverse the string
    c) Change case (Lower case or Upper case)
+6. Demonstrate the use of final keyword with data member, function and class.
+7. Demonstrate the use of keywords try, catch, finally, throw, throws.
