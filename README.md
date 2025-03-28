@@ -15,3 +15,4 @@ B. Find the factorial of a given number using Recursion.
    c) Change case (Lower case or Upper case)
 6. Demonstrate the use of final keyword with data member, function and class.
 7. Demonstrate the use of keywords try, catch, finally, throw, throws.
+8. Design a program to demonstrate multi threading using Thread class.
