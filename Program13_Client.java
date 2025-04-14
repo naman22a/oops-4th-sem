@@ -4,36 +4,30 @@ import java.net.*;
 
 public class Program13_Client {
 
+    private static final String SERVER_ADDRESS = "localhost";
+    private static final int PORT = 12345;
+
     public static void main(String[] args) {
-        int port = 5001;
+        try (
+                Socket socket = new Socket(SERVER_ADDRESS, PORT); BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in)); PrintWriter out = new PrintWriter(socket.getOutputStream(), true); BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+            System.out.println("Connected to chat server");
 
-        try (ServerSocket serverSocket = new ServerSocket(port)) {
-            System.out.println("Server started. Waiting for client...");
-
-            Socket socket = serverSocket.accept();
-            System.out.println("Client connected!");
-
-            // Read & Write
-            BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
-            BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
-
-            // Thread to receive messages
+            // Thread for receiving messages
             new Thread(() -> {
-                String msg;
+                String serverMessage;
                 try {
-                    while ((msg = input.readLine()) != null) {
-                        System.out.println("Client: " + msg);
+                    while ((serverMessage = in.readLine()) != null) {
+                        System.out.println("Server: " + serverMessage);
                     }
                 } catch (IOException e) {
-                    System.out.println("Client disconnected.");
+                    e.printStackTrace();
                 }
             }).start();
 
-            // Main thread to send messages
-            String message;
-            while ((message = console.readLine()) != null) {
-                output.println(message);
+            // Main thread for sending messages
+            String input;
+            while ((input = userInput.readLine()) != null) {
+                out.println(input);
             }
 
         } catch (IOException e) {

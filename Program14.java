@@ -4,29 +4,27 @@ import java.sql.*;
 public class Program14 {
 
     public static void main(String[] args) {
-        String dbFile = "sample.accdb"; // Path to your Access DB
-        String url = "jdbc:ucanaccess://" + dbFile;
+        String dbPath = "C:/databases/ExampleDB.accdb";
+        String url = "jdbc:ucanaccess://" + dbPath;
 
         try (Connection conn = DriverManager.getConnection(url)) {
-            System.out.println("Connected to the Access database.");
+            System.out.println("Connected to Access Database");
 
             Statement stmt = conn.createStatement();
-            String query = "SELECT * FROM YourTableName"; // Replace with your table name
-            ResultSet rs = stmt.executeQuery(query);
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Employees");
 
-            ResultSetMetaData metaData = rs.getMetaData();
-            int columnCount = metaData.getColumnCount();
+            System.out.println("ID\tName\t\tDepartment");
+            System.out.println("-------------------------------------");
 
-            // Display table content
             while (rs.next()) {
-                for (int i = 1; i <= columnCount; i++) {
-                    System.out.print(metaData.getColumnName(i) + ": " + rs.getString(i) + "\t");
-                }
-                System.out.println();
+                int id = rs.getInt("ID");
+                String name = rs.getString("Name");
+                String department = rs.getString("Department");
+                System.out.println(id + "\t" + name + "\t\t" + department);
             }
 
         } catch (SQLException e) {
-            System.out.println("Database error: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

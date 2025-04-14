@@ -20,5 +20,5 @@ B. Find the factorial of a given number using Recursion.
 10. Design a program to create a basic Calculator using Applet and Event Handling ❌
 11. Design a program to read a text file and after printing that on screen write the content to another text file
 12. Design a program to count of words, characters, vowels in a text file
-13. Design a program to create simple chat application using Socket Programming ❌
+13. Design a program to create simple chat application using Socket Programming
 14. Design a program to connect to Access Database and display contents of the table ❌
